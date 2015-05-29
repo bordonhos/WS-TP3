@@ -1,0 +1,933 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://ws_22208_65138.com/ontology#"
+     xml:base="http://ws_22208_65138.com/ontology"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://ws_22208_65138.com/ontology"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/happenedInRegion -->
+
+    <owl:ObjectProperty rdf:about="http://ws_22208_65138.com/ontology/happenedInRegion">
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/GR-A"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/GR-B"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/GR-C"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/GR-D"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/GR-E"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/GR-F"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/GR-G"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/GR-H"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/GR-I"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/GR-J"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/GR-K"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/GR-L"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/GR-M"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/RoadAccident"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/hasAccCause -->
+
+    <owl:ObjectProperty rdf:about="http://ws_22208_65138.com/ontology/hasAccCause">
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/AccCause"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Causes_referred_to_Drivers"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Causes_referred_to_Passengers"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Causes_referred_to_Pedestrians"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Causes_referred_to_Vehicle"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Causes_referred_to_Weather"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Causes_under_investigation"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Distracted_Driver"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Driving_Without_Attention"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Illegal_Overtaking"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Into_Oncoming_Traffic"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Priority_Violation"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/RoadAccident"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Speeding"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Traffic_Light_Violation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/hasAccType -->
+
+    <owl:ObjectProperty rdf:about="http://ws_22208_65138.com/ontology/hasAccType">
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Collision"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Diversion"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Impingement"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Overthrow"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/RoadAccident"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Uknown_Accident_Type"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/hasAccVehicle -->
+
+    <owl:ObjectProperty rdf:about="http://ws_22208_65138.com/ontology/hasAccVehicle">
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Big_Truck"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Car"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Motorcycle"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Other_Vehicle"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/RoadAccident"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Small_Truck"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Uknown_Vehicle"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/hasVictim -->
+
+    <owl:ObjectProperty rdf:about="http://ws_22208_65138.com/ontology/hasVictim">
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/RoadAccident"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/hasVictimAge -->
+
+    <owl:ObjectProperty rdf:about="http://ws_22208_65138.com/ontology/hasVictimAge">
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/AccidentVictim"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/hasVictimType -->
+
+    <owl:ObjectProperty rdf:about="http://ws_22208_65138.com/ontology/hasVictimType">
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/AccidentVictim"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Driver"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Passenger"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Pedestrian"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Pedestrian_Entrainment"/>
+        <rdfs:range rdf:resource="http://ws_22208_65138.com/ontology/Uknown_Victim_Type"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/inVehicle -->
+
+    <owl:ObjectProperty rdf:about="http://ws_22208_65138.com/ontology/inVehicle">
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/AccidentVictim"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/involvedIn -->
+
+    <owl:ObjectProperty rdf:about="http://ws_22208_65138.com/ontology/involvedIn">
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/VictimType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/DayTime -->
+
+    <owl:DatatypeProperty rdf:about="http://ws_22208_65138.com/ontology/DayTime">
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/RoadAccident"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/accidentID -->
+
+    <owl:DatatypeProperty rdf:about="http://ws_22208_65138.com/ontology/accidentID">
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/RoadAccident"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/dateOfAccident -->
+
+    <owl:DatatypeProperty rdf:about="http://ws_22208_65138.com/ontology/dateOfAccident">
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/RoadAccident"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/description -->
+
+    <owl:DatatypeProperty rdf:about="http://ws_22208_65138.com/ontology/description">
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Big_Truck"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Car"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Causes_referred_to_Drivers"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Causes_referred_to_Passengers"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Causes_referred_to_Pedestrians"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Causes_referred_to_Vehicle"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Causes_referred_to_Weather"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Causes_under_investigation"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Collision"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Distracted_Driver"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Diversion"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Driver"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Driving_Without_Attention"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/GR-A"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/GR-B"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/GR-C"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/GR-D"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/GR-E"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/GR-F"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/GR-G"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/GR-H"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/GR-I"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/GR-J"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/GR-K"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/GR-L"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/GR-M"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Illegal_Overtaking"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Impingement"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Into_Oncoming_Traffic"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Motorcycle"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Other_Vehicle"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Overthrow"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Passenger"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Pedestrian"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Pedestrian_Entrainment"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Priority_Violation"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Small_Truck"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Speeding"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/T07-09"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/T09-13"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/T13-17"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/T17-21"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/T21-24"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/T24-07"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Traffic_Light_Violation"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/UknownTime"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Uknown_Accident_Type"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Uknown_Vehicle"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Uknown_Victim_Age"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Uknown_Victim_Type"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Y0-17"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Y18-25"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Y26-35"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Y36-45"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Y46-55"/>
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/Y_GT55"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/victimID -->
+
+    <owl:DatatypeProperty rdf:about="http://ws_22208_65138.com/ontology/victimID">
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/AccidentVictim"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/weekDay -->
+
+    <owl:DatatypeProperty rdf:about="http://ws_22208_65138.com/ontology/weekDay">
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/RoadAccident"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos/lat -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos/lat">
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/RoadAccident"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos/long -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos/long">
+        <rdfs:domain rdf:resource="http://ws_22208_65138.com/ontology/RoadAccident"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/AccCause -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/AccCause"/>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/AccRegion -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/AccRegion"/>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/AccTime -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/AccTime"/>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/AccType -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/AccType"/>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/AccVehicle -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/AccVehicle"/>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/AccidentVictim -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/AccidentVictim"/>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Afternoon -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Afternoon">
+        <owl:equivalentClass rdf:resource="http://ws_22208_65138.com/ontology/T13-17"/>
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/DayTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Big_Truck -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Big_Truck">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Car -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Car">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Causes_referred_to_Drivers -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Causes_referred_to_Drivers">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccCause"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Causes_referred_to_Passengers -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Causes_referred_to_Passengers">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccCause"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Causes_referred_to_Pedestrians -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Causes_referred_to_Pedestrians">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccCause"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Causes_referred_to_Vehicle -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Causes_referred_to_Vehicle">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccCause"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Causes_referred_to_Weather -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Causes_referred_to_Weather">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccCause"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Causes_under_investigation -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Causes_under_investigation">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccCause"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Collision -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Collision">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/DayTime -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/DayTime"/>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Distracted_Driver -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Distracted_Driver">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccCause"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Diversion -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Diversion">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Driver -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Driver">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/VictimType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Driving_Without_Attention -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Driving_Without_Attention">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccCause"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Evening -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Evening">
+        <owl:equivalentClass rdf:resource="http://ws_22208_65138.com/ontology/T17-21"/>
+        <owl:equivalentClass rdf:resource="http://ws_22208_65138.com/ontology/T21-24"/>
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/DayTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/GR-A -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/GR-A">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/GR-B -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/GR-B">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/GR-C -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/GR-C">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/GR-D -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/GR-D">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/GR-E -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/GR-E">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/GR-F -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/GR-F">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/GR-G -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/GR-G">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/GR-H -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/GR-H">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/GR-I -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/GR-I">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/GR-J -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/GR-J">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/GR-K -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/GR-K">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/GR-L -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/GR-L">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/GR-M -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/GR-M">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Illegal_Overtaking -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Illegal_Overtaking">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccCause"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Impingement -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Impingement">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Into_Oncoming_Traffic -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Into_Oncoming_Traffic">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccCause"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Morning -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Morning">
+        <owl:equivalentClass rdf:resource="http://ws_22208_65138.com/ontology/T07-09"/>
+        <owl:equivalentClass rdf:resource="http://ws_22208_65138.com/ontology/T09-13"/>
+        <owl:equivalentClass rdf:resource="http://ws_22208_65138.com/ontology/T24-07"/>
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/DayTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Motorcycle -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Motorcycle">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Other_Vehicle -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Other_Vehicle">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Overthrow -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Overthrow">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Passenger -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Passenger">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/VictimType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Pedestrian -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Pedestrian">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/VictimType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Pedestrian_Entrainment -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Pedestrian_Entrainment">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/VictimType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Priority_Violation -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Priority_Violation">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccCause"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/RoadAccident -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/RoadAccident"/>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Small_Truck -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Small_Truck">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Speeding -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Speeding">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccCause"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/T07-09 -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/T07-09">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/T09-13 -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/T09-13">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/T13-17 -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/T13-17">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/T17-21 -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/T17-21">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/T21-24 -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/T21-24">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/T24-07 -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/T24-07">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Traffic_Light_Violation -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Traffic_Light_Violation">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccCause"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/UknownTime -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/UknownTime">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Uknown_Accident_Type -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Uknown_Accident_Type">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Uknown_Vehicle -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Uknown_Vehicle">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/AccVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Uknown_Victim_Age -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Uknown_Victim_Age">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/VictimAge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Uknown_Victim_Type -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Uknown_Victim_Type">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/VictimType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/VictimAge -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/VictimAge"/>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/VictimType -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/VictimType"/>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Y0-17 -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Y0-17">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/VictimAge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Y18-25 -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Y18-25">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/VictimAge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Y26-35 -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Y26-35">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/VictimAge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Y36-45 -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Y36-45">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/VictimAge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Y46-55 -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Y46-55">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/VictimAge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ws_22208_65138.com/ontology/Y_GT55 -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Y_GT55">
+        <rdfs:subClassOf rdf:resource="http://ws_22208_65138.com/ontology/VictimAge"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Driver"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Passenger"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Pedestrian"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Pedestrian_Entrainment"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Uknown_Victim_Type"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Causes_referred_to_Drivers"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Causes_referred_to_Passengers"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Causes_referred_to_Pedestrians"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Causes_referred_to_Vehicle"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Causes_referred_to_Weather"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Causes_under_investigation"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Distracted_Driver"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Driving_Without_Attention"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Illegal_Overtaking"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Into_Oncoming_Traffic"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Priority_Violation"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Speeding"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Traffic_Light_Violation"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T07-09"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T09-13"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T13-17"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T17-21"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T21-24"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T24-07"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/UknownTime"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-A"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-B"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-C"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-D"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-E"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-F"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-G"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-H"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-I"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-J"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-K"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-L"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-M"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Collision"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Diversion"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Impingement"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Overthrow"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Uknown_Accident_Type"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Big_Truck"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Car"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Motorcycle"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Other_Vehicle"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Small_Truck"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Uknown_Vehicle"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Uknown_Victim_Age"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Y0-17"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Y18-25"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Y26-35"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Y36-45"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Y46-55"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Y_GT55"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

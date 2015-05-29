@@ -1,6 +1,11 @@
 Dados/roadaccidents.rdf
 Dados/roadaccidents.csv
 Dados/roadaccidents.n3
-Dados/
 __pycache__
 ws_22208_65138.iml
+*.nt
+*.csv
+*.n3
+*.db
+Dados/Originais/roadaccidents.rdf
+Dados/roadaccidents.xml
