@@ -1,0 +1,5 @@
+2005-06-28 18:01:51,684 INFO SesameConnection starting up...
+2005-06-28 18:01:51,685 DEBUG GET:http://localhost:7080/sesame/servlets/listRepositories
+2005-06-28 18:01:51,691 DEBUG OK
+2005-06-28 18:01:51,749 DEBUG POST:http://localhost:7080/sesame/servlets/logout
+2005-06-28 18:01:51,754 DEBUG OK: 23 bytes
