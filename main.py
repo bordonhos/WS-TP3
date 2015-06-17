@@ -8,9 +8,13 @@ import inferencerules
 import rdflib
 import converter
 import SPARQLQueries
-
+#import pySesame
+from SPARQLWrapper import SPARQLWrapper, JSON, XML, N3, RDF
 from rdflib import ConjunctiveGraph, Namespace, Literal
 
+
+sesameServer = "http://localhost:8080/openrdf-sesame/repositories/ws"
+sesameUpdateServer = "http://localhost:8080/openrdf-workbench/repositories/ws/update"
 
 #https://docs.python.org/2/tutorial/datastructures.html
 def list(list):
@@ -74,7 +78,7 @@ def isFileLoaded():
 
 while flag:
     print('\n --=== MENU ===--')
-    print('1 - Carregar Ficheiro') #Carraga o ficheiro
+    print('1 - Carregar ligação') #Carraga o ficheiro
     print('2 - Dados Gerais') #informação geral sobre os dados
     print('3 - Procurar Acidente/Vitima') # pesquisar dados de determinado acidente
     print('4 - Consultas') #algumas consultas sobre os dados
@@ -84,7 +88,56 @@ while flag:
     if n.strip().upper() == 'X':
         flag = False
     if n.strip() == '1':
-        _graph.parse("Dados\\roadaccidents.nt", format="nt")
+
+        qry = 'PREFIX pf: <http://xmlns.com/gah/0.1/> ' \
+              'SELECT  ?vitima ?descIdade ' \
+              'WHERE{ ' \
+              '?idAcidente pf:accidentID "382"^^<http://www.w3.org/2001/XMLSchema#int>. ' \
+              '?idAcidente pf:hasVictim ?idVitima. ' \
+              '?idVitima pf:victimID ?vitima. ' \
+              '?idVitima pf:hasVictimAge ?idtipoIdade. ' \
+              '?idtipoIdade pf:description ?descIdade. ' \
+              '}'
+        #    'INSERT DATA { GRAPH <http://xmlns.com/gah/0.1/> {' \
+        #INSERT DATA { ' \
+
+        qry = 'PREFIX pf: <http://xmlns.com/gah/0.1/> ' \
+              'CONSTRUCT { ' \
+              '?acidente <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ws_22208_65138.com/ontology#RoadAccident>' \
+              '}' \
+              'WHERE {' \
+              '    OPTIONAL { ?acidente pf:accidentID ?victim.}' \
+              'FILTER (bound(?victim))' \
+              '}'
+        sparql = SPARQLWrapper(sesameServer)
+        sparql.setReturnFormat(N3)
+
+        sparql.setQuery(qry)
+        results = sparql.query().convert().decode("utf-8")
+        resultsList = results.split('\n')
+
+        print ('\n')
+        for row in resultsList:
+            print(row)
+
+        #g = rdflib.Graph()
+        #queryResult = g.parse(data=newDict,format='N3')
+
+
+
+        sparqlUpdate = SPARQLWrapper("http://localhost:8080/openrdf-workbench/repositories/tp3/update")
+
+        for row in resultsList:
+            query = "insert data { graph  { + " + row + " } }"
+            sparqlUpdate.setQuery(query)
+            sparqlUpdate.method = 'post'
+            sparqlUpdate.query()
+
+
+
+
+
+
     if n.strip() == '2' and isFileLoaded():
         if(isFileLoaded()):
             key = 'Z';
