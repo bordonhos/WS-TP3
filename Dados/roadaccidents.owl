@@ -772,6 +772,12 @@
     
 
 
+    <!-- http://ws_22208_65138.com/ontology/Victim -->
+
+    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Victim"/>
+    
+
+
     <!-- http://ws_22208_65138.com/ontology/VictimAge -->
 
     <owl:Class rdf:about="http://ws_22208_65138.com/ontology/VictimAge"/>
@@ -843,19 +849,21 @@
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-A"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-B"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-C"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-D"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-E"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-F"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-G"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-H"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-I"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-J"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-K"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-L"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-M"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Driver"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Passenger"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Pedestrian"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Pedestrian_Entrainment"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Uknown_Victim_Type"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Collision"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Diversion"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Impingement"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Overthrow"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Uknown_Accident_Type"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -879,38 +887,6 @@
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Driver"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Passenger"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Pedestrian"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Pedestrian_Entrainment"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Uknown_Victim_Type"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T07-09"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T09-13"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T13-17"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T17-21"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T21-24"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T24-07"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/UknownTime"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Collision"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Diversion"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Impingement"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Overthrow"/>
-            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Uknown_Accident_Type"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Uknown_Victim_Age"/>
             <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Y0-17"/>
             <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Y18-25"/>
@@ -929,6 +905,36 @@
             <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Other_Vehicle"/>
             <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Small_Truck"/>
             <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/Uknown_Vehicle"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-A"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-B"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-C"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-D"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-E"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-F"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-G"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-H"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-I"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-J"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-K"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-L"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/GR-M"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T07-09"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T09-13"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T13-17"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T17-21"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T21-24"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/T24-07"/>
+            <rdf:Description rdf:about="http://ws_22208_65138.com/ontology/UknownTime"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>

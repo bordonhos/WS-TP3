@@ -36,10 +36,18 @@ def insertOntologyVictim (sesameServer, sesameUpdateServer, ontology):
     qry = 'PREFIX pf: <http://xmlns.com/gah/0.1/> ' \
           'CONSTRUCT { ' \
           '?vitima <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <' + ontology + '>}' \
-            'WHERE {' \
-            '    OPTIONAL { ?vitima pf:hasVictimAge ?age.}' \
-            'FILTER (bound(?age))' \
-            '}'
+                                                                                     'WHERE {' \
+                                                                                     '    OPTIONAL { ?vitima pf:hasVictimAge ?age.}' \
+                                                                                     'FILTER (bound(?age))' \
+                                                                                     '}'
+    results = getOntologyTriples (sesameServer, qry)
+    addTriples(sesameUpdateServer, results)
+
+def insertOntologyOtherType (sesameServer, sesameUpdateServer, otherType, ontology):
+    qry = 'PREFIX pf: <http://xmlns.com/gah/0.1/> ' \
+        ' CONSTRUCT {?o <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <' + ontology + '>.} '\
+        ' WHERE {SELECT distinct ?o '\
+        ' WHERE {?s pf:' + otherType + ' ?o .}}'
     results = getOntologyTriples (sesameServer, qry)
     addTriples(sesameUpdateServer, results)
 
