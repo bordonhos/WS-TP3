@@ -13,8 +13,8 @@ from SPARQLWrapper import SPARQLWrapper, JSON, XML, N3, RDF
 from rdflib import ConjunctiveGraph, Namespace, Literal
 
 
-sesameServer = "http://localhost:8080/openrdf-sesame/repositories/ws"
-sesameUpdateServer = "http://localhost:8080/openrdf-workbench/repositories/ws/update"
+sesameServer = "http://localhost:8080/openrdf-sesame/repositories/tp3"
+sesameUpdateServer = "http://localhost:8080/openrdf-workbench/repositories/tp3/update"
 
 #https://docs.python.org/2/tutorial/datastructures.html
 def list(list):
@@ -71,9 +71,9 @@ flag = True
 _graph = ConjunctiveGraph()
 
 def isFileLoaded():
-    if len(_graph) == 0:
-        print ('O gráfico ainda não foi carregado')
-        return False
+    #if len(_graph) == 0:
+    #    print ('O gráfico ainda não foi carregado')
+    #    return False
     return True
 
 while flag:
@@ -125,13 +125,13 @@ while flag:
 
 
 
-        sparqlUpdate = SPARQLWrapper("http://localhost:8080/openrdf-workbench/repositories/tp3/update")
+        #sparqlUpdate = SPARQLWrapper("http://localhost:8080/openrdf-workbench/repositories/tp3/update")
 
-        for row in resultsList:
-            query = "insert data { graph  { + " + row + " } }"
-            sparqlUpdate.setQuery(query)
-            sparqlUpdate.method = 'post'
-            sparqlUpdate.query()
+        #for row in resultsList:
+        #    query = "insert data { graph  { + " + row + " } }"
+        #    sparqlUpdate.setQuery(query)
+        #    sparqlUpdate.method = 'post'
+        #    sparqlUpdate.query()
 
 
 
@@ -151,14 +151,14 @@ while flag:
                 print('X - Menu anterior')
                 key = input('Opção')
                 if key == '1':
-                    results = SPARQLQueries.predicateCount (_graph,"http://xmlns.com/gah/0.1/","accidentID")
-                    for r in results:
-                        acc = r[0]
+                    results = SPARQLQueries.predicateCount (sparql,"http://xmlns.com/gah/0.1/","accidentID")
+                    for result in results["results"]["bindings"]:
+                        acc = result["pCount"]["value"]
                     print ('Existiram ' + str(acc) + ' acidentes');
                 if key == '2':
-                    results = SPARQLQueries.predicateCount (_graph,"http://xmlns.com/gah/0.1/","victimID")
-                    for r in results:
-                        acc = r[0]
+                    results = SPARQLQueries.predicateCount (sparql,"http://xmlns.com/gah/0.1/","victimID")
+                    for result in results["results"]["bindings"]:
+                        acc = result["pCount"]["value"]
                     print ('Existiram ' + str(acc) + ' Vitimas');
                 if key == '3':
                     results = SPARQLQueries.listTypes (_graph,"http://xmlns.com/gah/0.1/", "hasAccType")

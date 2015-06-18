@@ -1,27 +1,33 @@
 __author__ = '22208_65138'
 
 from rdflib.graph import ConjunctiveGraph, Namespace, rdflib
+from SPARQLWrapper import SPARQLWrapper, JSON, XML, N3, RDF
 
-def predicateCount (graph, namespace, predicate):
-    ns = Namespace(namespace)
-    qry = "SELECT (COUNT(pf:" + predicate + ") as ?pCount) " \
+def predicateCount (sparql, namespace, predicate):
+    qry = "PREFIX pf: <http://xmlns.com/gah/0.1/> "\
+        "SELECT (COUNT(pf:" + predicate + ") as ?pCount) " \
          " WHERE {" \
-         "?s pf:" + predicate + " ?o ." \
-         "    } "
-
-    results = graph.query( qry, initNs={'pf':ns})
+         "?s pf:" + predicate + " ?o } "
+    sparql.setReturnFormat(JSON)
+    sparql.setQuery(qry)
+    sparql.method = 'post'
+    results = sparql.query().convert()
     return results
 
-def listTypes (graph, namespace, type):
+def listTypes (sparql, namespace, type):
     ns = Namespace(namespace)
-    qry = "SELECT ?Descricao ( Count (*) as ?count) " \
+    qry = "PREFIX pf: <http://xmlns.com/gah/0.1/>" \
+            "SELECT ?Descricao ( Count (*) as ?count) " \
             " WHERE {" \
             " ?s pf:" + type + " ?Tipo . " \
             " ?Tipo pf:description ?Descricao ." \
             "}" \
             "GROUP BY ?Descricao " \
             "ORDER BY DESC (?count)"
-    results = graph.query( qry, initNs={'pf':ns})
+    sparql.setReturnFormat(JSON)
+    sparql.setQuery(qry)
+    sparql.method = 'post'
+    results = sparql.query().convert()
     return results
 
 
