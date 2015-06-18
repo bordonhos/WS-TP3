@@ -44,12 +44,15 @@ def listTypes (sparql, namespace, owlClass):
     return results
 
 
-def accidentData (graph, namespace, accidentID):
-    ns = Namespace(namespace)
-    qry = 'SELECT ?idAcidente ?descVeiculo ?descCausa ?descHora ?descLocal (count (?idVitima) as ?nVitimas) ' \
+def accidentData (sparql, namespace, accidentID):
+    qry = 'PREFIX pf:<' + namespace + '>' \
+          'PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>' \
+          'PREFIX owlws:<http://ws_22208_65138.com/ontology/>' \
+    'SELECT ?idAcidente ?descVeiculo ?descCausa ?descHora ?descLocal (count (?idVitima) as ?nVitimas) ' \
     'WHERE{ ' \
     '?idAcidente pf:accidentID "' + accidentID + '"^^<http://www.w3.org/2001/XMLSchema#int>. ' \
-    '?idAcidente pf:hasAccVehicle ?idtipoVeiculo. ' \
+     '?idAcidente rdf:type owlws:RoadAccident .' \
+     '?idAcidente pf:hasAccVehicle ?idtipoVeiculo. ' \
     '?idtipoVeiculo pf:description ?descVeiculo. ' \
     '?idAcidente pf:hasAccCause ?idCausa. ' \
     '?idCausa pf:description ?descCausa. ' \
@@ -62,15 +65,23 @@ def accidentData (graph, namespace, accidentID):
     '?idAcidente pf:hasVictim ?idVitima. ' \
     '}' \
     'GROUP BY ?idAcidente ?descVeiculo ?descCausa ?descHora ?descLocal'
-    results = graph.query( qry, initNs={'pf':ns})
+
+    sparql.setReturnFormat(JSON)
+    sparql.setQuery(qry)
+    sparql.method = 'get'
+    results = sparql.query().convert()
     return results
 
-def  victimData (graph, namespace, victimID):
-    ns = Namespace(namespace)
-    qry = 'SELECT ?idVitima ?descIdade ?descVeiculo ?descVitima ?idAcidente ?objAcidente ' \
+def  victimData (sparql, namespace, victimID):
+
+    qry = 'PREFIX pf:<' + namespace + '>' \
+      'PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>' \
+      'PREFIX owlws:<http://ws_22208_65138.com/ontology/>' \
+      'SELECT ?idVitima ?descIdade ?descVeiculo ?descVitima ?idAcidente ?objAcidente ' \
         'WHERE{ ' \
         '?idVitima pf:victimID "' + victimID + '"^^<http://www.w3.org/2001/XMLSchema#int>. ' \
         '?idVitima pf:hasVictimAge ?idtipoIdade. ' \
+        '?idVitima rdf:type owlws:AccidentVictim .' \
         '?idtipoIdade pf:description ?descIdade. ' \
         '?idVitima pf:inVehicle ?idtipoveiculo. ' \
         '?idtipoveiculo pf:description ?descVeiculo. ' \
@@ -79,34 +90,54 @@ def  victimData (graph, namespace, victimID):
         '?idVitima pf:involvedIn ?idAcidente. ' \
         '?idAcidente pf:accidentID ?objAcidente.'\
         '}'
-    results = graph.query( qry, initNs={'pf':ns})
+
+    sparql.setReturnFormat(JSON)
+    sparql.setQuery(qry)
+    sparql.method = 'get'
+    results = sparql.query().convert()
     return results
 
-def accidentVictimAge (graph, namespace, accidentID):
+def accidentVictimAge (sparql, namespace, accidentID):
     ns = Namespace(namespace)
-    qry = 'SELECT  ?vitima ?descIdade ' \
+    qry = 'PREFIX pf:<' + namespace + '>' \
+           'PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>' \
+           'PREFIX owlws:<http://ws_22208_65138.com/ontology/>' \
+     'SELECT  ?vitima ?descIdade ' \
     'WHERE{ ' \
     '?idAcidente pf:accidentID "' + accidentID + '"^^<http://www.w3.org/2001/XMLSchema#int>. ' \
+    '?idAcidente rdf:type owlws:RoadAccident .'\
     '?idAcidente pf:hasVictim ?idVitima. ' \
     '?idVitima pf:victimID ?vitima. ' \
+    '?idVitima rdf:type owlws:AccidentVictim .' \
     '?idVitima pf:hasVictimAge ?idtipoIdade. ' \
     '?idtipoIdade pf:description ?descIdade. ' \
+    '?idtipoIdade rdf:type owlws:VictimAge .' \
     '}'
 
-    results = graph.query( qry, initNs={'pf':ns})
+    sparql.setReturnFormat(JSON)
+    sparql.setQuery(qry)
+    sparql.method = 'get'
+    results = sparql.query().convert()
     return results
 
-def accidentsByType (graph, namespace, predicate, value ):
-    ns = Namespace(namespace)
+def accidentsByType (sparql, namespace, predicate, value ):
 
-    qry = 'SELECT  ?acidente ' \
+
+    qry = 'PREFIX pf:<' + namespace + '>' \
+          'PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>' \
+          'PREFIX owlws:<http://ws_22208_65138.com/ontology/>' \
+    'SELECT  ?acidente ' \
         'WHERE{ ' \
         '?id pf:description "' + value +'". ' \
         '?idAcidente pf:' +predicate + ' ?id . ' \
         '?idAcidente pf:accidentID ?acidente . ' \
-        '}'
-    results = graph.query( qry, initNs={'pf':ns})
+        '?idAcidente rdf:type owlws:RoadAccident .' \
+     '}'
 
+    sparql.setReturnFormat(JSON)
+    sparql.setQuery(qry)
+    sparql.method = 'get'
+    results = sparql.query().convert()
     return results
 
 def happenedDuring(graph, namespace):

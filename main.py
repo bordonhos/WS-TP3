@@ -175,11 +175,11 @@ while flag:
             if key == '1':
                 id = input ("Introduza o id do Acidente: ")
                 acc = Accident.Accident()
-                acc.Data(_graph,id)
+                acc.Data(sparql,id)
             if key == '2':
                 id = input ("Introduza o id da Vitima: ")
                 acc = Victim.Victim()
-                acc.Data(_graph,id)
+                acc.Data(sparql,id)
     if n.strip() == '4' and isFileLoaded():
         key = 'Z';
         while key.upper() != 'X':
@@ -193,43 +193,43 @@ while flag:
 
             if key == '1':
                 acc = input ("Introduza o id do acidente")
-                results = SPARQLQueries.accidentVictimAge(_graph,"http://xmlns.com/gah/0.1/", acc)
-                if len (results.bindings) == 0:
+                results = SPARQLQueries.accidentVictimAge(sparql,"http://xmlns.com/gah/0.1/", acc)
+                if len (results['results']['bindings']) == 0:
                     print ("Acidente não encontrado")
                 else:
-                    print ("Esse acidente teve " + str(len (results.bindings)) + " vitimas:")
-                    for c in results.bindings:
-                        print ("A vitima " +c["?vitima"] + " na faixa etária " +  c["?descIdade"])
+                    print ("Esse acidente teve " + str (len (results['results']['bindings'])) + " vitimas:")
+                    for c in results['results']['bindings']:
+                        print ("A vitima " +c["vitima"]['value'] + " na faixa etária " +  c["descIdade"]['value'])
 
             if key == '2':
-                results = SPARQLQueries.listTypes (_graph,"http://xmlns.com/gah/0.1/", "hasAccCause")
+                results = SPARQLQueries.listTypes (sparql,"http://xmlns.com/gah/0.1/", "http://ws_22208_65138.com/ontology/AccCause")
                 i=1
-                for r in results:
-                    print ("[" + str (i)+ "]: " + r[0])
+                for r in results['results']['bindings']:
+                    print ("[" + str (i)+ "]: " + r["Descricao"]["value"])
                     i = i + 1
 
                 acc = input ("Introduza o número correspondente à Causa pretendida:")
-                results = SPARQLQueries.accidentsByType(_graph,"http://xmlns.com/gah/0.1/","hasAccCause", results.bindings[int(acc)-1]["?Descricao"])
-                print ("Existem " + str(len(results.bindings)) + " acidentes")
+                results = SPARQLQueries.accidentsByType(sparql,"http://xmlns.com/gah/0.1/","hasAccCause", results['results']['bindings'][int(acc)-1]["Descricao"]["value"])
+                print ("Existem " + str (len (results['results']['bindings'])) + " acidentes")
                 if input ("Deseja listar os acidentes (S/N)?").upper() == "S":
                     acc = Accident.Accident()
-                    for r in results:
-                        acc.Data(_graph,r[0])
+                    for r in results['results']['bindings']:
+                        acc.Data(sparql,r["acidente"]["value"])
 
             if key == '3':
-                results = SPARQLQueries.listTypes (_graph,"http://xmlns.com/gah/0.1/", "hasAccVehicle")
+                results = SPARQLQueries.listTypes (sparql,"http://xmlns.com/gah/0.1/", "http://ws_22208_65138.com/ontology/AccVehicle")
                 i=1
-                for r in results:
-                    print ("[" + str (i)+ "]: " + r[0])
+                for r in results['results']['bindings']:
+                    print ("[" + str (i)+ "]: " + r["Descricao"]["value"])
                     i = i + 1
 
                 vit = input ("Introduza o número correspondente ao veiculo pretendido:")
-                results = SPARQLQueries.accidentsByType(_graph,"http://xmlns.com/gah/0.1/","hasAccVehicle", results.bindings[int(vit)-1]["?Descricao"])
-                print ("Existem " + str(len(results.bindings)) + " vitimas")
+                results = SPARQLQueries.accidentsByType(sparql,"http://xmlns.com/gah/0.1/","hasAccVehicle", results['results']['bindings'][int(vit)-1]["Descricao"]["value"])
+                print ("Existem " + str(len(results['results']['bindings'])) + " vitimas")
                 if input ("Deseja listar as vitimas (S/N)?").upper() == "S":
                     vit = Victim.Victim()
-                    for r in results:
-                        vit.Data(_graph,r[0])
+                    for r in results['results']['bindings']:
+                        vit.Data(sparql,r["acidente"]["value"])
 
             if key == '4':
                 list = g.query ([( "?subacidente", "http://crashmap.okfn.gr/vocabs/roadAccidentsVocab#hasVictimAge","http://crashmap.okfn.gr/data/accidents/VictimAge/Y0-17"),
