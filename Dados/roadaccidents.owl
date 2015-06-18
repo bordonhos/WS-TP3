@@ -772,12 +772,6 @@
     
 
 
-    <!-- http://ws_22208_65138.com/ontology/Victim -->
-
-    <owl:Class rdf:about="http://ws_22208_65138.com/ontology/Victim"/>
-    
-
-
     <!-- http://ws_22208_65138.com/ontology/VictimAge -->
 
     <owl:Class rdf:about="http://ws_22208_65138.com/ontology/VictimAge"/>
