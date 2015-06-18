@@ -10,23 +10,36 @@ def predicateCount (sparql, namespace, predicate):
          "?s pf:" + predicate + " ?o } "
     sparql.setReturnFormat(JSON)
     sparql.setQuery(qry)
-    sparql.method = 'post'
+    sparql.method = 'get'
     results = sparql.query().convert()
     return results
 
-def listTypes (sparql, namespace, type):
+def owlClassCount (sparql, owlClass):
+    qry = "SELECT (Count(<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>) as ?pCount)" \
+            "WHERE { ?s1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <" + owlClass + ">.}"\
+            "GROUP BY ?p "\
+            "ORDER BY DESC (?count)"
+
+    sparql.setReturnFormat(JSON)
+    sparql.setQuery(qry)
+    sparql.method = 'get'
+    results = sparql.query().convert()
+    return results
+
+def listTypes (sparql, namespace, owlClass):
     ns = Namespace(namespace)
     qry = "PREFIX pf: <http://xmlns.com/gah/0.1/>" \
             "SELECT ?Descricao ( Count (*) as ?count) " \
             " WHERE {" \
-            " ?s pf:" + type + " ?Tipo . " \
-            " ?Tipo pf:description ?Descricao ." \
+            " ?s1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <" + owlClass + ">." \
+            "	?a ?p ?s1." \
+            " ?s1 pf:description ?Descricao ." \
             "}" \
             "GROUP BY ?Descricao " \
             "ORDER BY DESC (?count)"
     sparql.setReturnFormat(JSON)
     sparql.setQuery(qry)
-    sparql.method = 'post'
+    sparql.method = 'get'
     results = sparql.query().convert()
     return results
 

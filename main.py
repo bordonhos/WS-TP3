@@ -13,8 +13,8 @@ from SPARQLWrapper import SPARQLWrapper, JSON, XML, N3, RDF
 from rdflib import ConjunctiveGraph, Namespace, Literal
 
 
-sesameServer = "http://localhost:8080/openrdf-sesame/repositories/tp3"
-sesameUpdateServer = "http://localhost:8080/openrdf-workbench/repositories/tp3/update"
+sesameServer = "http://localhost:8080/openrdf-sesame/repositories/ws"
+sesameUpdateServer = "http://localhost:8080/openrdf-workbench/repositories/ws/update"
 
 #https://docs.python.org/2/tutorial/datastructures.html
 def list(list):
@@ -76,6 +76,7 @@ def isFileLoaded():
     #    return False
     return True
 
+sparql = SPARQLWrapper(sesameServer)
 while flag:
     print('\n --=== MENU ===--')
     print('1 - Carregar ligação') #Carraga o ficheiro
@@ -120,24 +121,6 @@ while flag:
         for row in resultsList:
             print(row)
 
-        #g = rdflib.Graph()
-        #queryResult = g.parse(data=newDict,format='N3')
-
-
-
-        #sparqlUpdate = SPARQLWrapper("http://localhost:8080/openrdf-workbench/repositories/tp3/update")
-
-        #for row in resultsList:
-        #    query = "insert data { graph  { + " + row + " } }"
-        #    sparqlUpdate.setQuery(query)
-        #    sparqlUpdate.method = 'post'
-        #    sparqlUpdate.query()
-
-
-
-
-
-
     if n.strip() == '2' and isFileLoaded():
         if(isFileLoaded()):
             key = 'Z';
@@ -151,36 +134,36 @@ while flag:
                 print('X - Menu anterior')
                 key = input('Opção')
                 if key == '1':
-                    results = SPARQLQueries.predicateCount (sparql,"http://xmlns.com/gah/0.1/","accidentID")
+                    results = SPARQLQueries.owlClassCount (sparql,"http://ws_22208_65138.com/ontology/RoadAccident")
                     for result in results["results"]["bindings"]:
                         acc = result["pCount"]["value"]
                     print ('Existiram ' + str(acc) + ' acidentes');
                 if key == '2':
-                    results = SPARQLQueries.predicateCount (sparql,"http://xmlns.com/gah/0.1/","victimID")
+                    results = SPARQLQueries.owlClassCount (sparql,"http://ws_22208_65138.com/ontology/AccidentVictim")
                     for result in results["results"]["bindings"]:
                         acc = result["pCount"]["value"]
                     print ('Existiram ' + str(acc) + ' Vitimas');
                 if key == '3':
-                    results = SPARQLQueries.listTypes (_graph,"http://xmlns.com/gah/0.1/", "hasAccType")
+                    results = SPARQLQueries.listTypes (sparql,"http://xmlns.com/gah/0.1/", "http://ws_22208_65138.com/ontology/AccType")
                     print ("Os tipos de acidentes que existem são:")
                     print ("Tipo de acidente  --> Número de acidentes")
                     print ("-------------------------------------------")
-                    for r in results:
-                        print (r[0] +" --> " + r[1])
+                    for r in results['results']['bindings']:
+                        print (r['Descricao']['value']+" --> " + r['count']['value'])
                 if key == '4':
-                    results = SPARQLQueries.listTypes (_graph,"http://xmlns.com/gah/0.1/", "hasAccCause")
+                    results = SPARQLQueries.listTypes (sparql,"http://xmlns.com/gah/0.1/", "http://ws_22208_65138.com/ontology/AccCause")
                     print ("As causas de acidentes existentes são:")
                     print ("Causas de acidente  --> Número de acidentes")
                     print ("-------------------------------------------")
 
-                    for r in results:
-                        print (r[0] +" --> " + r[1])
+                    for r in results['results']['bindings']:
+                        print (r['Descricao']['value']+" --> " + r['count']['value'])
                 if key == '5':
-                    results = SPARQLQueries.listTypes (_graph,"http://xmlns.com/gah/0.1/", "hasVictimAge")
+                    results = SPARQLQueries.listTypes (sparql,"http://xmlns.com/gah/0.1/", "http://ws_22208_65138.com/ontology/VictimAge")
                     print ("Faixa etária das vitimas --> Número de Vitimas")
                     print ("-------------------------------------------")
-                    for r in results:
-                        print (r[0] +" --> " + r[1])
+                    for r in results['results']['bindings']:
+                        print (r['Descricao']['value']+" --> " + r['count']['value'])
     if n.strip() == '3' and isFileLoaded():
         key = 'Z';
         while key.upper() != 'X':
