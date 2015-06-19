@@ -21,6 +21,7 @@ def addTriples (sesameServer, triplesList):
     sparqlUpdate.query()
 
 def insertOntologyRoadAccident (sesameServer, sesameUpdateServer, ontology):
+    print ("Adicionar classe " + ontology)
     qry = 'PREFIX pf: <http://xmlns.com/gah/0.1/> ' \
           'CONSTRUCT { ' \
           '?acidente <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <' + ontology + '>}' \
@@ -33,6 +34,7 @@ def insertOntologyRoadAccident (sesameServer, sesameUpdateServer, ontology):
 
 
 def insertOntologyVictim (sesameServer, sesameUpdateServer, ontology):
+    print ("Adicionar classe " + ontology)
     qry = 'PREFIX pf: <http://xmlns.com/gah/0.1/> ' \
           'CONSTRUCT { ' \
           '?vitima <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <' + ontology + '>}' \
@@ -44,6 +46,7 @@ def insertOntologyVictim (sesameServer, sesameUpdateServer, ontology):
     addTriples(sesameUpdateServer, results)
 
 def insertOntologyOtherType (sesameServer, sesameUpdateServer, otherType, ontology):
+    print ("Adicionar classe " + ontology)
     qry = 'PREFIX pf: <http://xmlns.com/gah/0.1/> ' \
         ' CONSTRUCT {?o <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <' + ontology + '>.} '\
         ' WHERE {SELECT distinct ?o '\
